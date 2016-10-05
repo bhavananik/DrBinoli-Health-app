@@ -14,25 +14,16 @@
         <ion-content>
             <ion-list>
                 <ion-item class="heading-item item item-avatar" nav-clear menu-close ui-sref="app.profile">
-                  <div class="user-image-container">
+                    <div class="user-image-container">
                         <pre-img ratio="_1_1" helper-class="rounded-image">
                             <img class="user-image" ng-src="img/applogo.jpg" spinner-on-load>
                         </pre-img>
-                    </div> 
-                    
+                    </div>
                     <h2 class="greeting" ng-if="userLogged == 1">Hi {{username}} </h2>
                     <h2 class="greeting" ng-if="userLogged == 0"></h2>
                     <p class="message" ng-if="apkLanguage == 'english'">Welcome </p>
                     <p class="message" ng-if="apkLanguage != 'english'">{{menutext.welcome[language]}}  </p>
                 </ion-item>
-
-
-
-
-
-
-
-
                 <ion-item class="item-icon-left" nav-clear menu-close ui-sref="app.category-list">
                     <i class="icon ion-android-home"></i>
                     <h2 class="menu-text" ng-if="apkLanguage == 'english'">Home</h2>
@@ -47,17 +38,15 @@
                     <i class ="icon ion-ios-time"></i>
                     <h2 class="menu-text" ng-if="apkLanguage == 'english'">Your Appointments</h2>
                     <h2 class="menu-text" ng-if="apkLanguage != 'english'">{{menutext.appointment[language]}}</h2>                        
-                </ion-item>                
-
+                </ion-item>            
                 <ion-item class="item-icon-left logoutbtn" nav-clear menu-close ui-sref="app.consultations-current" ng-if="userLogged == 1">
                     <i class="icon ion-ios-time"></i>
                     <h2 class="menu-text" ng-if="apkLanguage == 'english'">Your Appointments</h2>
                     <h2 class="menu-text" ng-if="apkLanguage != 'english'">{{menutext.appointment[language]}}</h2>
                 </ion-item>
-
                 <div class="item-bgnone" ng-if="userLogged == 0">
                     <ion-item class="item-icon-left logoutbtn" ng-repeat="menu in menuItem" nav-clear menu-close ng-if="menu.intereface_menu.menu != 'consultations'" ng-click="checkRedirect(menu.url)" >
-                        <i class="icon {{menu.intereface_menu.menu=='settings'? 'ion-gear-a':menu.intereface_menu.menu=='records'? 'ion-folder': menu.intereface_menu.menu=='your chats'? 'ion-chatboxes':menu.intereface_menu.menu=='packages'? 'ion-cube':menu.intereface_menu.menu=='library'? 'ion-ios-book':menu.intereface_menu.menu=='pathology'? 'ion-erlenmeyer-flask':menu.intereface_menu.menu=='medicines'? 'ion-medkit':menu.intereface_menu.menu=='reminder'? 'ion-cube':'ion-cube'}}"></i>
+                        <i class="icon {{menu.intereface_menu.menu=='settings'? 'ion-gear-a':menu.intereface_menu.menu=='records'? 'ion-folder': menu.intereface_menu.menu=='chats'? 'ion-chatboxes': menu.intereface_menu.menu=='your chats'? 'ion-chatboxes':menu.intereface_menu.menu=='packages'? 'ion-cube':menu.intereface_menu.menu=='library'? 'ion-ios-book':menu.intereface_menu.menu=='pathology'? 'ion-erlenmeyer-flask':menu.intereface_menu.menu=='medicines'? 'ion-medkit':menu.intereface_menu.menu=='reminder'? 'ion-cube':'ion-cube'}}"></i>
                         <h2 class="menu-text" ng-if="apkLanguage == 'english'">{{menu.intereface_menu.menu|capitalizeEach}}</h2>
                         <h2 class="menu-text" ng-init="item = menu.intereface_menu.menu" ng-if="apkLanguage != 'english'">{{menutext[item][language]}}</h2>
                     </ion-item>
@@ -65,14 +54,11 @@
                 <div class="clr"></div>
                 <div class="item-bgnone" ng-if="userLogged == 1">
                     <ion-item class="item-icon-left logoutbtn" ng-repeat="menu in menuItem" nav-clear menu-close ng-if="menu.intereface_menu.menu != 'consultations'" ui-sref="{{menu.url}}" >
-                        <i class="icon {{menu.intereface_menu.menu=='settings'? 'ion-gear-a':menu.intereface_menu.menu=='records'? 'ion-folder': menu.intereface_menu.menu=='your chats'? 'ion-chatboxes': menu.intereface_menu.menu=='chats'? 'ion-chatboxes':menu.intereface_menu.menu=='packages'? 'ion-cube':menu.intereface_menu.menu=='library'? 'ion-ios-book':menu.intereface_menu.menu=='pathology'? 'ion-erlenmeyer-flask':menu.intereface_menu.menu=='medicines'? 'ion-medkit':menu.intereface_menu.menu=='reminder'? 'ion-cube':'ion-cube'}}"></i>
+                        <i class="icon {{menu.intereface_menu.menu=='settings'? 'ion-gear-a':menu.intereface_menu.menu=='records'? 'ion-folder': menu.intereface_menu.menu=='chats'? 'ion-chatboxes': menu.intereface_menu.menu=='your chats'? 'ion-chatboxes':menu.intereface_menu.menu=='packages'? 'ion-cube':menu.intereface_menu.menu=='library'? 'ion-ios-book':menu.intereface_menu.menu=='pathology'? 'ion-erlenmeyer-flask':menu.intereface_menu.menu=='medicines'? 'ion-medkit':menu.intereface_menu.menu=='reminder'? 'ion-cube':'ion-cube'}}"></i>
                         <h2 class="menu-text" ng-if="apkLanguage == 'english'">{{menu.intereface_menu.menu|capitalizeEach}}</h2>
                         <h2 class="menu-text" ng-init="item = menu.intereface_menu.menu" ng-if="apkLanguage != 'english'">{{menutext[item][language]}}</h2>
                     </ion-item>
                 </div>
-
-
-
                 <ion-item class="item-icon-left logoutbtn" nav-clear menu-close ng-if="userLogged == '1'" ng-click="logout()" >
                     <i class="icon ion-android-unlock"></i>
                     <h2 class="menu-text" ng-if="apkLanguage == 'english'">Logout</h2>
@@ -83,22 +69,16 @@
                     <h2 class="menu-text" ng-if="apkLanguage == 'english'">Login</h2>
                     <h2 class="menu-text" ng-if="apkLanguage != 'english'">{{menutext.login[language]}}</h2>
                 </ion-item>
-
-            <!--     <ion-item class="item-icon-left" nav-clear menu-close ui-sref="auth.forgot-password">
-                    <i class="icon ion-medkit"></i>
-                    <h2 class="menu-text">Forget passwrokd</h2>
-                   
-                </ion-item>  -->
-
-
-
-
+                <!--     <ion-item class="item-icon-left" nav-clear menu-close ui-sref="auth.forgot-password">
+                        <i class="icon ion-medkit"></i>
+                        <h2 class="menu-text">Forget passwrokd</h2>
+                       
+                    </ion-item>  -->
                 <!--<ion-item class="item-icon-left" nav-clear menu-close ui-sref="app.medicine">
                     <i class="icon ion-medkit"></i>
                     <h2 class="menu-text" ng-if="apkLanguage == 'english'">Medicines</h2>
                     <h2 class="menu-text" ng-if="apkLanguage != 'english'">{{menutext.medicines[language]}}</h2>
                 </ion-item> 
-
                 <ion-item class="item-icon-left" nav-clear menu-close ui-sref="app.pathology">
                     <i class="icon ion-erlenmeyer-flask"></i>
                     <h2 class="menu-text" ng-if="apkLanguage == 'english'">Pathology</h2>

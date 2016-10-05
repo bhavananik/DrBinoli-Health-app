@@ -555,7 +555,7 @@ angular.module('your_app_name', [
                             }
                         }
                     })
-                    
+
                     .state('app.view-chat-video', {
                         cache: false,
                         url: "/view-chat-video/{id:string}",
@@ -589,6 +589,7 @@ angular.module('your_app_name', [
                             }
                         }
                     })
+
 
                     .state('app.patient-settings', {
                         cache: false,

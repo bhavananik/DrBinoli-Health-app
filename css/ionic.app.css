@@ -9190,6 +9190,8 @@ input[type="date"]:before{
 
 .spceinfields .fieldvalue{margin-bottom: 15px; border-bottom: 1px #ddd solid;}
 
+.spceinfields{float: left; width: 100%; margin-bottom: 60px;}
+
 .f22{font-size: 22px;}
 
 .Cstmbutn {
@@ -9462,8 +9464,28 @@ ion-side-menu ion-item.item:last-child{ border-bottom: 1px #33383e solid !import
 .crdview .icon,.item-bgnone .icon{color:#fff;}
 .item-bgnone .item{background: none !important; color: #fff;}
 
-/* change theme color */
 
+
+
+
+
+.addr {float:left;
+        width:90%;}
+.forgot-password-container .item.item-body{padding: 5px !important;}
+.backforgot{    float: left;
+    color: #fff;
+    font-size: 22px;
+    line-height: 34px; margin-left: 10px; position: absolute; z-index: 999; cursor: pointer;}
+    .backforgot i{color: #fff;}
+    .btnforgot{    padding: 0px 20px;
+    /* float: left; */
+    /* clear: right; */
+    color: #ec7935;  cursor: pointer;}
+    ion-slide img{max-width: 100%; border-bottom: 2px #ccc solid;     padding: 10px;}
+.mtm-5{margin-top: -5px !important;}
+
+
+/* change theme color */
 html,body, .ionic-body,h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,
 input, button, select, textarea,.tab-item
 { font-family: 'Raleway', sans-serif;}
@@ -9506,27 +9528,16 @@ input, button, select, textarea,.tab-item
 .tabnav .col a.active, .tabnav .nbtn.active{color:#ec7935; background:#fff; box-shadow:0 2px 0 #ec7935; font-weight:bold;}
 .joinfooter .tab-item i{color:#ec7935;}
 .card-viewbtn{background:#ec7935; }
-
 /* end of  change theme color*/
 
-
-.addr {float:left;
-        width:90%;}
-.forgot-password-container .item.item-body{padding: 5px !important;}
-.backforgot{    float: left;
-    color: #fff;
-    font-size: 22px;
-    line-height: 34px; margin-left: 10px; position: absolute; z-index: 999; cursor: pointer;}
-    .backforgot i{color: #fff;}
-    .btnforgot{    padding: 0px 20px;
-    /* float: left; */
-    /* clear: right; */
-    color: #ec7935;  cursor: pointer;}
-    ion-slide img{max-width: 100%; border-bottom: 2px #ccc solid;     padding: 10px;}
-.mtm-5{margin-top: -5px !important;}
-
-
-
+.textwrapterms .checkbox .item-content,
+.textwrapterms .item-content,
+.textwrapterms .list .item
+    {
+      overflow: inherit !important;
+    white-space: inherit !important;
+    text-overflow: inherit !important;
+  }
 
 
 

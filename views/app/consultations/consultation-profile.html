@@ -212,27 +212,31 @@
                                                         {{day.from|limitTo:2}} - {{day.to|limitTo:2}}
                                                     </li>
                                                 </ul>-->
-                                                <div class="sche-date">
-                                                    <div class="leftarrow" ng-click="getFirstSlots(cs.supersaas_id, $index, serv)">Earliest Slot</div> 
-                                                    <input type="date" ng-model="schCdate[$index]" value="schCdate[$index]|dateFormat1" ng-change="getNextSlots(schCdate[$index], cs.supersaas_id, $index, serv)"/>
-                                                    <input type="hidden" ng-model="nextCdate[$index]" value="nextCdate[$index]|datetime"/>
-                                                    <div class="rightarrow" ng-click="getNextSlots(nextCdate, cs.supersaas_id, $index, serv)">{{apkLanguage == 'english'? 'Next Slot': next_slot[language]}}</div>
-                                                </div>
-                                                <div ng-if="schC[$index] == cs.supersaas_id">
-                                                    {{cSch[$index]==''? 'No slots available':''}}
-                                                    <ul class="timesheet"  ng-repeat="(key,slot) in cSch[$index] track by $index">
-                                                        <li onclick="toggleclass(this);" ng-repeat="slt in slot" ng-if="slt['sdate'] < nextCdate[$parent.$parent.$index]" ng-model="timeslot" ng-click="bookSlot(slt['start'][0], slt['finish'][0], cs.supersaas_id, cs.id)"> 
-                                                            {{slt['start'][0]|time1}}
-                                                            <!--{{slt['finish'][0]|time}}   -->                    
-                                                        </li>
-                                                    </ul>
-                                                </div>
+                                                <!--                                                <div class="full addr hide" id = {{cs.id}}full>{{cs.address}}</div>
+                                                                                                <div class="short addr" id = {{cs.id}}short>{{cs.address.substring(0,30)}}</div>
+                                                                                                <input type = "button" class ="toggle" id= {{cs.id}} ng-click="toggleaddress({{cs.id}})" value="...">-->
                                             </div>
-                                            <div class="section-footer">   
-                                                <a class="button button-full button-positive" ng-click="bookAppointment(clinicProd.id, serv)">{{procced[language]}} </a>
-                                            </div>	
+                                            <div class="sche-date">
+                                                <div class="leftarrow" ng-click="getFirstSlots(cs.supersaas_id, $index, serv)">{{apkLanguage == 'english'? 'Earliest Slot' : earliest_slot[language]}}</div> 
+                                                <input type="date" ng-model="schCdate[$index]" value="schCdate[$index]|dateFormat1" ng-change="getNextSlots(schCdate[$index], cs.supersaas_id, $index, serv)"/>
+                                                <input type="hidden" ng-model="nextCdate[$index]" value="nextCdate[$index]|datetime"/>
+                                                <div class="rightarrow" ng-click="getNextSlots(nextCdate, cs.supersaas_id, $index, serv)">{{apkLanguage == 'english'? 'Next Slot': next_slot[language]}}</div>
+                                            </div>
+                                            <div ng-if="schC[$index] == cs.supersaas_id">
+                                                {{cSch[$index]==''? 'No slots available':''}}
+                                                <ul class="timesheet"  ng-repeat="(key,slot) in cSch[$index] track by $index">
+                                                    <li onclick="toggleclass(this);" ng-repeat="slt in slot" ng-if="slt['sdate'] < nextCdate[$parent.$parent.$index]" ng-model="timeslot" ng-click="bookSlot(slt['start'][0], slt['finish'][0], cs.supersaas_id, cs.id)"> 
+                                                        {{slt['start'][0]|time1}}
+                                                        <!--{{slt['finish'][0]|time}}   -->                    
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
+                                        <div class="section-footer">   
+                                            <a class="button button-full button-positive" ng-click="bookAppointment(clinicProd.id, serv)">{{procced[language]}} </a>
+                                        </div>	
                                     </div>
+
                                 </my-tab>
                                 <my-tab  icon="ion-chatboxes tabicon" title="{{apkLanguage == 'english'? 'Chat': chat[language]}}" ng-if="serv == 2">
                                     <div class="tabc2">

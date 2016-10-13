@@ -218,8 +218,11 @@ angular.module('PasswordConfirm', []).directive('changePasswordC', function () {
                         })
                     }
                     $scope.doSignUp = function () {
+                        $('#checkotp').removeClass('hide');
+                        $('#signup').addClass('hide');
                         var data = "name=" + $scope.user.name + "&email=" + $scope.user.email + "&phone=" + $scope.user.phone + "&password=" + $scope.user.password + "&interface=" + $scope.interface + "&registervia=" + $scope.registervia;
                         //var data = new FormData(jQuery("#signup")[0]);
+                        //$ionicLoading.show({template: 'Loading..'});
                         $.ajax({
                             type: 'GET',
                             url: domain + "check-otp",
@@ -228,13 +231,14 @@ angular.module('PasswordConfirm', []).directive('changePasswordC', function () {
                             contentType: false,
                             processData: false,
                             success: function (response) {
+                                //$ionicLoading.hide();
                                 window.localStorage.setItem('code', response.otpcode);
                                 $ionicScrollDelegate.scrollTop([true]);
                                 store($scope.user);
                                 alert('Kindly check your mobile for OTP')
                                 $ionicScrollDelegate.scrollTop();
-                                $('#checkotp').removeClass('hide');
-                                $('#signup').addClass('hide');
+//                                $('#checkotp').removeClass('hide');
+//                                $('#signup').addClass('hide');
                             }
                         });
                     };
@@ -1742,7 +1746,7 @@ angular.module('PasswordConfirm', []).directive('changePasswordC', function () {
             };
 
             $scope.getEnd = function () {
-                console.log(" === " + $scope.nodays + " === " );
+                console.log(" === " + $scope.nodays + " === ");
                 var noDays = $('#dietdays').val();
                 var startDate = $filter('date')(($('#diet-start').val()), 'yyyy-MM-dd');
                 var enDate = getDayAfter(startDate, noDays);
